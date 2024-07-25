@@ -13,6 +13,32 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontSize: {
+        //heading for Desktop
+        'global-font-h1': ['3.5rem', '1.1'],
+        'global-font-h2': ['3rem', '1.2'],
+        'global-font-h3': ['2rem', '1.2'],
+        'global-font-h4': ['1.5rem', '1.2'],
+        'global-font-h5': ['1.125rem', '1.2'],
+        'global-font-h6': ['1.875rem', '1.375'],
+        'global-font-h7': ['2.25rem', '3.3rem'],
+        //text
+        'global-font-text1': ['1.125rem', '1.2'],
+        'global-font-text2': ['1rem', '1.2'],
+        'global-font-text3': ['0.75rem', '1.4'],
+        'global-font-text4': ['1rem', '1.5'],
+    },
+    colors: {
+      'blue': '#1fb6ff',
+      'purple': '#7e5bef',
+      'pink': '#ff49db',
+      'orange': '#ff7849',
+      'green': '#13ce66',
+      'yellow': '#ffc82c',
+      'gray-dark': '#273444',
+      'gray': '#8492a6',
+      'gray-light': '#d3dce6',
+    },
     },
   },
   plugins: [],
