@@ -15,11 +15,11 @@ const CustomInput = (props: Props) => {
   
   return (
     <>
-    <input
+    <input 
       type={props.type}
       placeholder={props.placeholder}
   {...props.register}
-      className="border-solid border-[1px] pl-2 rounded-md "/>
+      className="border-solid border-[1px] pr-14 mt-2 rounded-md "/>
       <p className="text-red-600">{props.error}</p>
       </>
   );

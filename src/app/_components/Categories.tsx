@@ -32,6 +32,7 @@ const Categories = () => {
       <div className="font-bold text-global-font-h5">Categories</div>
       <div className="pt-3">Lorem ipsum dolor sit amet. </div>
       <div className="grid grid-cols-3 w-full gap-5 p-24">
+      
         <CategoryCard
           image={categorydata.at(0)!.image}
           text={categorydata.at(0)!.text}
@@ -49,6 +50,7 @@ const Categories = () => {
           text={categorydata.at(3)!.text} className="h-[17.75rem]"
           
         />
+        
         </div>
         
         

@@ -9,7 +9,7 @@ const footerLink = [
     return (
       <div className=" space-x-2">
         {footerLink.map((item, index) => (
-          <Link className="text-slate-500 hover:text-yellow"  href={item.link}> {item.name} </Link>
+          <Link className="text-white hover:text-yellow hover:font-semibold"  href={item.link}> {item.name} </Link>
         ))}
       </div>
     );

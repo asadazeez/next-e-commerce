@@ -5,8 +5,8 @@ import FooterSidebar from "./FooterSidebar";
 function Footer() {
   return (
     <>
-      <div className="flex flex-col text-black p-6 sm:justify-between sm:flex sm:flex-row">
-        <div className="font-[700] text-center">E-COMMERCE </div>
+      <div className="flex flex-col bg-gradient-to-r from-indigo-500 text-lg text-white p-6 sm:justify-between sm:flex sm:flex-row">
+        <div className=" font-black text-4xl text-center">E-COMMERCE </div>
 
         <div>
           <div className="flex justify-center font-semibold pb-4">Links</div>
@@ -15,8 +15,8 @@ function Footer() {
           </div>
         </div>
         <div className="sm:block">
-        <div className="font-semibold flex justify-center sm:block">Get In Touch</div>
-      <div className="text-slate-500 flex justify-center  sm:block pt-4">
+        <div className="font-semibold text-black flex justify-center sm:block">Get In Touch</div>
+      <div className="text-black flex justify-center  sm:block pt-4">
         Koottanad (via), Palakkad District
       </div>
         <div className="flex justify-center sm:block ">

@@ -1,43 +1,15 @@
 import React from "react";
 import Fragrance from "@public/image/featured/closeup-shot-beautifully-shaped-glass-bottles-filled-with-perfume.jpg";
 import FeaturedCard from "@/app/_components/FeaturedCard";
+import { StaticImageData } from "next/image";
 
-const shopData = [
-  {
-    image: Fragrance,
-    heading: "ARAMIS",
-    subhead: "$13",
-  },
 
-  {
-    image: Fragrance,
-    heading: "CALVIN KLEIN",
-    subhead: "$65",
-  },
-  {
-    image: Fragrance,
-    heading: "GUERLAIN",
-    subhead: "$68",
-  },
-  {
-    image: Fragrance,
-    heading: "LE LABO",
-    subhead: "$27",
-  },
-  {
-    image: Fragrance,
-    heading: "AZZARO",
-    subhead: "$6",
-  },
-  {
-    image: Fragrance,
-    heading: "FRIENDS",
-    subhead: "$6",
-  },
-];
 
-const page = ({params }: { params: { products: string } }) => {
-
+const page = async ({params }: { params: { products: string } }) => {
+  let res = await fetch("https://dummyjson.com/products/category/"+ params.products)
+  const shopData= await res.json()
+  
+  
   
   return (
     <div>
@@ -46,15 +18,15 @@ const page = ({params }: { params: { products: string } }) => {
           {params.products} PRODUCTS
         </div>
         <div className="pt-3">Lorem ipsum dolor sit amet. </div>
-        <div className="grid grid-cols-4 w-full gap-5 p-24">
-          {shopData.map((item, i) => (
+        <div className="grid grid-cols-4  w-full gap-10 p-24">
+          {shopData.products.map((item: any) => (
             <FeaturedCard
-            key={i}
-              image={item.image}
-              heading={item.heading!}
-              subhead={item.subhead!}
+          
+              image={item.thumbnail}
+              heading={item.title!}
+              subhead={item.price!}
               product= {params.products}
-              
+              id={item.id}
             />
           ))}
         </div>

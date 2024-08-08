@@ -6,6 +6,7 @@ import CartSvg from "../../svg/CartSvg";
 import { log } from "console";
 import Sidebar from "./Sidebar";
 import Burger from "../../svg/Burger";
+import Link from "next/link";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -18,8 +19,8 @@ const Header = () => {
 
   return (
     <div>
-    <div className="flex justify-between text-sky-500 p-6">
-      <div className="font-[1000] ">E-COMMERCE </div>
+    <div className="flex justify-between text-sky-500 p-6 my-3">
+      <div className="font-black text-3xl ">E-COMMERCE </div>
 
       <div className="space-x-3 font-medium flex ">
         <HeaderSide />
@@ -29,7 +30,8 @@ const Header = () => {
               1
             </div>
           </div>
-          <CartSvg className="size-7 " />
+          <Link href={"/cart"}>
+          <CartSvg className="size-7 hover:shadow-lg" /></Link>
         </div>
         <Burger className="size-7 md:hidden " onClick={click} />
       </div>

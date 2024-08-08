@@ -1,5 +1,6 @@
 import cn from '@/utilis/tailwind'
 import Image, { StaticImageData } from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 type CategoryProps= {
     image:StaticImageData
@@ -10,6 +11,7 @@ type CategoryProps= {
 const CategoryCard = (props:CategoryProps) => {
   return (
     <div className="relative">
+      <Link href={`/shop/${props.text}`}>
       <Image
             src={props.image}
             alt="image"
@@ -18,6 +20,7 @@ const CategoryCard = (props:CategoryProps) => {
           <div className="absolute bottom-5 left-2 px-2 bg-white rounded-sm font-semibold">
             {props.text}
           </div>
+          </Link>
         </div>
   )
 }

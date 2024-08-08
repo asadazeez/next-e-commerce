@@ -32,11 +32,11 @@ const page = () => {
   return (
     <div className="relative flex justify-center items-center">
       <Image src={loginjpg} alt="login Image" className="h-[45rem]" />
-      <div className="absolute flex flex-col items-center bg-white/60  gap-2 rounded-xl p-5 px-16">
-        <div className="text-lg text-violet-900 font-extrabold">
+      <div className="absolute flex flex-col items-center bg-white/60  gap-2 rounded-xl p-10 px-32">
+        <div className="text-2xl text-violet-900 font-extrabold">
           Log in to your account
         </div>
-        <div className="font-extralight text-xs">
+        <div className="font-extralight text-base">
           Please enter your details!
         </div>
 
@@ -49,7 +49,7 @@ const page = () => {
               register={register("emailAddress")}
             />
 
-            <div className=" relative flex justify-end items-center  mt-2">
+            <div className=" relative flex justify-end items-center ">
               <CostumInput
                 type={click ==true ?"Password":"text"}
                 placeholder="Password"
@@ -57,8 +57,8 @@ const page = () => {
                 register={register("pswrd")}
               />
 {click==true?
-              <EyeOpen className="absolute size-4 flex mr-2" onClick={() => setClick(false)}/>:
-                <EyeClose  className="absolute size-4 flex mr-2" onClick={() => setClick(true)} />
+              <EyeOpen className="absolute size-4 flex mr-2 bottom-[0.3rem]" onClick={() => setClick(false)}/>:
+                <EyeClose  className="absolute size-4 flex mr-2 bottom-[0.3rem]" onClick={() => setClick(true)} />
 }
             </div>
           </div>
@@ -66,7 +66,7 @@ const page = () => {
           <div className="mt-3 ">
             <button
               type="submit"
-              className="bg-yellow font-semibold px-16 rounded-md hover:bg-orange"
+              className="bg-yellow font-semibold px-24 rounded-md hover:bg-orange"
             >
               Log In
             </button>

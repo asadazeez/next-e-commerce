@@ -45,10 +45,12 @@ const Featured = () => {
 
         {featuredData.map((item, i) => (
           <FeaturedCard
+          key={i}
             image={item.image}
             heading={item.heading!}
             subhead={item.subhead!}
             product=""
+            id=""
           />
         ))}
       </div>
