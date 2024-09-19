@@ -421,8 +421,8 @@ const OrderPage = () => {
 
         </div>
         
+      <PrimaryButton  type="submit" disabled={isSubmitting} text={"SUBMIT"} classname={"bg-indigo-400 w-full md:block mt-14 rounded-lg text-white font-semibold py-2"}/>
       </div>
-      <PrimaryButton  type="submit" disabled={isSubmitting} text={"SUBMIT"} classname={"bg-indigo-400 w-full md:hidden mt-14 rounded-lg text-white font-semibold py-2"}/>
     </div>
   );
 };
