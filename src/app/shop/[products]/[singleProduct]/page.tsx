@@ -1,36 +1,43 @@
 import FeaturedCard from "@/app/_components/FeaturedCard";
 import Image from "next/image";
-import React from "react";
-import Fragrance from "@public/image/featured/closeup-shot-beautifully-shaped-glass-bottles-filled-with-perfume.jpg";
-import PrimaryButton from "@/components/PrimaryButton";
+import React, { useEffect, useState } from "react";
+import Addcart from "@/app/cart/_components/Addcart";
+import { frontendApi } from "@/app/api/apis";
+import { storageUrl } from "@/utilis/baseUrl";
 
-const page = async ({ params }: { params: { singleProduct: string } }) => {
-  let res = await fetch(
-    "https://dummyjson.com/products/" + params.singleProduct
-  );
-  const shopData = await res.json();
-  
+const SingleProductPage = async ({
+  params,
+}: {
+  params: { singleProduct: string };
+}) => {
+  const response = await frontendApi.getSingleProduct(params.singleProduct);
+  const ProductData = response.data.data.product;
 
   return (
-    <div className="relative gap-9 grid grid-cols-2">
-      <div className="relative h-96 p-72 border-dotted border-[1px] ">
-        <Image src={shopData.thumbnail} alt="product image" fill className="object-fill" />
+    <div className="relative   gap-9 pb-14 grid md:grid-cols-2">
+      <div className="flex justify-center px-5 col-span-1">
+      <div className="relative h-[15rem] w-full md:h-[25rem]">
+        <Image
+          src={storageUrl + ProductData.image}
+          alt="product image"
+          fill
+          className="object-cover rounded-2xl"
+        />
       </div>
-      <div className="flex flex-col justify-center gap-3">
-        <div className="font-bold text-xl">{shopData.title}</div>
-        <div className="font-black text-4xl">₹{shopData.price}</div>
-        <div className="font-medium">{shopData.brand}</div>
-        <div className="flex flex-col px-32 gap-3 justify-start" >
-          <PrimaryButton type="submit"
-          classname="bg-blue px-32 py-2 rounded-lg font-semibold text-white" text="BUY NOW"/>
+      </div>
+      
+      <div className="flex flex-col text-center justify-center gap-3 md:text-start">
+        <div className="font-bold text-xl">{ProductData.name}</div>
+        <div className="font-black text-4xl">₹{ProductData.price}</div>
+        <div className="font-medium">{ProductData.brand}</div>
+        <div className="font-medium">{ProductData.description}</div>
 
-<PrimaryButton type="submit" 
-          classname="bg-blue px-[7.1rem] py-2 rounded-lg font-semibold text-white" text="ADD TO CART"/>
-          </div>
-        
+        <div className="flex flex-col  gap-3 justify-start">
+          <Addcart ProductData={ProductData} />
+        </div>
       </div>
     </div>
   );
 };
 
-export default page;
+export default SingleProductPage;

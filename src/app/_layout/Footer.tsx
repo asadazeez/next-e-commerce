@@ -5,7 +5,7 @@ import FooterSidebar from "./FooterSidebar";
 function Footer() {
   return (
     <>
-      <div className="flex flex-col bg-gradient-to-r from-indigo-500 text-lg text-white p-6 sm:justify-between sm:flex sm:flex-row">
+      <div className="flex flex-col  bg-gradient-to-r from-indigo-500 text-lg text-white p-6 sm:justify-between lg:flex lg:flex-row ">
         <div className=" font-black text-4xl text-center">E-COMMERCE </div>
 
         <div>
@@ -14,15 +14,17 @@ function Footer() {
             <FooterSide />
           </div>
         </div>
-        <div className="sm:block">
-        <div className="font-semibold text-black flex justify-center sm:block">Get In Touch</div>
-      <div className="text-black flex justify-center  sm:block pt-4">
-        Koottanad (via), Palakkad District
-      </div>
-        <div className="flex justify-center sm:block ">
-          <FooterSidebar />
+        <div >
+          <div className="font-semibold text-black flex justify-center lg:block">
+            Get In Touch
           </div>
+          <div className="text-black flex justify-center  lg:block pt-4">
+            Koottanad (via), Palakkad District
           </div>
+          <div className="flex justify-center lg:block ">
+            <FooterSidebar />
+          </div>
+        </div>
       </div>
     </>
   );

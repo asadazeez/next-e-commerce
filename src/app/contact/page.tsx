@@ -8,21 +8,17 @@ import EmailSvg from "../../svg/Email";
 const page = () => {
   return (
     <div className="relative h-[35rem] flex justify-center items-center">
-      <Image src={contact} alt="contact image" fill />
-      <div className=" text-white absolute flex flex-col items-center gap-6 ">
+      <Image src={contact} alt="contact image" fill className="object-cover"/>
+      <div className=" text-white z-50  flex flex-col px-4 font-medium items-center gap-6 ">
         <h2 className="font-black text-3xl">CONTACT US</h2>
-        <div>
-          <p>
+       
+          <p className="text-center">
             Problems trying to resolve the conflict between the two major realms
             of Classical physics:
           </p>
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            officia in minima facere :
-          </p>
-        </div>
-        <div className="flex justify-center gap-40 font-black p-4 bg-white/55 rounded-lg backdrop-blur-sm text-black">
+          
+     
+        <div className="flex-col flex justify-center gap-10 font-black p-4 bg-white/55 rounded-lg backdrop-blur-sm text-black md:flex-row md:gap-12 ">
           <div className="flex items-center gap-5">
             <div className=" size-fit  bg-white rounded-full p-1">
               <AddressSvg className="size-10 " />

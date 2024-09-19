@@ -1,40 +1,18 @@
 import React from "react";
-import Men from "@public/image/categories/men.jpeg";
-import Women from "@public/image/categories/women.jpeg";
-import Accessories from "@public/image/categories/accessories.jpeg";
-import Kids from "@public/image/categories/kids.jpeg";
+
 import Card from "@/components/Card";
+import { frontendApi } from "../api/apis";
 
 
 
 
 
 
-//   {
-//     image: Men,
-//     text: "MEN",
-//   },
 
-//   {
-//     image: Women,
-//     text: "WOMEN",
-//   },
-//   {
-//     image: Accessories,
-//     text: "ACCESSORIES",
-//   },
-//   {
-//     image: Kids,
-//     text: "KIDS",
-  
-//   },
-// ];
 
-const page = async () => {
-  let res = await fetch('https://dummyjson.com/products/category-list')
-  const categorydatas= await res.json()
-  // console.log("-------",categorydatas);
-  
+const ShopPage = async () => {
+const response = await frontendApi.getShopPage()
+  const categoryDatas = response.data.data.categories
 
   return (
     <div>
@@ -42,15 +20,17 @@ const page = async () => {
         CATEGORIES
       </div>
 
-      <div className="grid grid-cols-4 p-32 gap-8 ">
+      <div className="grid  col-span-2  p-32 gap-8 md:grid-cols-3 ">
         
         
-        {categorydatas.map((item:any)=>(
+        {categoryDatas.map((category:any, index:number)=>(
+           
           <Card
+          key={index}
           
-         
-          text={item}
-          image={item.thumbnail}/>
+         id={category._id}
+          name={category.name}
+          image={category.image}/>
         ))}
         
       </div>
@@ -58,4 +38,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default ShopPage;

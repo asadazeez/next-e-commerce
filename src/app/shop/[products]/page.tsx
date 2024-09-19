@@ -1,32 +1,32 @@
 import React from "react";
-import Fragrance from "@public/image/featured/closeup-shot-beautifully-shaped-glass-bottles-filled-with-perfume.jpg";
 import FeaturedCard from "@/app/_components/FeaturedCard";
-import { StaticImageData } from "next/image";
+import { frontendApi } from "@/app/api/apis";
 
 
 
-const page = async ({params }: { params: { products: string } }) => {
-  let res = await fetch("https://dummyjson.com/products/category/"+ params.products)
-  const shopData= await res.json()
-  
+const ProductPage = async ({params}:{ params: { products: string }}) => {
+
+  const response = await frontendApi.getProductPage(params.products)
+  const shopData = response.data.data.products
+  const {categoryname, description} = response.data.data.categoryData
   
   
   return (
     <div>
       <div className="flex-col  flex pt-20 items-center">
         <div className="font-bold text-global-font-h5">
-          {params.products} PRODUCTS
+          {categoryname} Products
         </div>
-        <div className="pt-3">Lorem ipsum dolor sit amet. </div>
-        <div className="grid grid-cols-4  w-full gap-10 p-24">
-          {shopData.products.map((item: any) => (
+        <div className="pt-3">{description} </div>
+        <div className="grid  w-full gap-10 p-24 md:grid-cols-4 ">
+          {shopData.map((item: any , index:number) => (
             <FeaturedCard
-          
-              image={item.thumbnail}
-              heading={item.title!}
+           key={index}
+              image={item.image}
+              heading={item.name!}
               subhead={item.price!}
               product= {params.products}
-              id={item.id}
+              id={item._id}
             />
           ))}
         </div>
@@ -35,4 +35,4 @@ const page = async ({params }: { params: { products: string } }) => {
   );
 };
 
-export default page;
+export default ProductPage;

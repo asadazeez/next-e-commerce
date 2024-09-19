@@ -18,7 +18,7 @@ function Sidebar({ click }: Props) {
       </div>
       <div className=" bg-indigo-400 flex flex-col  text-center font-extrabold p-16 md:hidden text-3xl text-slate-200 gap-8 col-span-1">
         {headerLink.map((item, index) => (
-          <Link className=" hover:text-yellow" href={item.link}  onClick={click}>
+          <Link key={index} className=" hover:text-yellow" href={item.link}  onClick={click}>
             {item.name}
           </Link>
         ))}
