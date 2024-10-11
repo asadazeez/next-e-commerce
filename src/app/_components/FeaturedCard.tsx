@@ -19,19 +19,21 @@ const FeaturedCard = ({
   id,
 }: FeaturedProps) => {
   return (
-    <Link href={`/shop/${product}/${id}`} className="col-span-2 lg:col-span-1">
-      <div className=" justify-center  relative flex  hover:shadow-2xl   h-60 w-full">
+    <Link href={`/shop/${product}/${id}`} className="col-span-3 lg:col-span-1">
+      <div className=" justify-center items-center flex-col flex   ">
+        <div className="overflow-hidden h-[22rem] w-full  relative">
         <Image
           src={storageUrl + image}
           alt="image"
           fill
-          className="object-cover rounded-xl"
+          className="object-cover transition duration-300 hover:scale-105 "
         />
-        <div className="font-bold pt-2 absolute bottom-0 mb-[-1.5rem] text-base">
+        </div>
+        <div className="sen-semibold  text-lg">
           {heading}
         </div>
-        <div className="font-extrabold absolute bottom-0 mb-[-2.5rem] text-xs">
-          {" "}
+        <div className="sen-semibold mt-1  text-sm">
+          
           ₹{subhead}
         </div>
       </div>

@@ -11,7 +11,7 @@ const footerLink = [
         {footerLink.map((item, index) => (
           
           <Link 
-          key={index}className="text-white hover:text-yellow hover:font-semibold"  href={item.link}> {item.name} </Link>
+          key={index}className=" hover:text-violet-600  text-sm josefin-sans-unique "  href={item.link}> {item.name} </Link>
         ))}
       </div>
     );

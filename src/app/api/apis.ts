@@ -19,6 +19,10 @@ getBanner : async function (){
 
     return await axiosClient.get("carousel/")
 },
+createOrder : async function (userId:any,body:any){
+
+    return await axiosClient.post(`order/${userId}`,body)
+}
 
 
 };

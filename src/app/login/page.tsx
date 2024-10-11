@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import loginjpg from "@public/image/vecteezy_modern-blue-wavy-shape-geometric-abstract-curve-line_7546115-1.jpg";
+import loginjpg from "@public/image/cjGRDUZhw1yFwIDKEwEvn-transformed.jpeg";
 import Link from "next/link";
 import { StaticImageData } from "next/image";
 import eyeclose from "@app/svg/eye-icons/eye-close.png";
@@ -15,7 +15,7 @@ import CustomInput from "@/components/CostumInput";
 import EyeClose from "@/svg/EyeClose";
 import { userApi } from "../api/userApi";
 import toast from "react-hot-toast";
-import Cookies  from "js-cookie";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
 const Schema = z.object({
@@ -25,84 +25,86 @@ const Schema = z.object({
 type TSchema = z.infer<typeof Schema>;
 
 const Page = () => {
-  const [click,setClick]=useState(true);
-  const router = useRouter()
+  const [click, setClick] = useState(true);
+  const router = useRouter();
 
-  
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<TSchema>({ resolver: zodResolver(Schema) });
 
-  const submitData = async (data:any)  => {
-    const response = await userApi.loginUser(data)
+  const submitData = async (data: any) => {
+    const response = await userApi.loginUser(data);
 
-      if (!response.data.success) {
-        toast.error(response.data.message)
-       
-      }else{
-        toast.success(response.data.message)
-        window.localStorage.setItem("accessToken",response.data.accessToken)
-        Cookies.set("accessToken",response.data.accessToken)
-        router.push('/')
-        router.refresh()
-        
-      }
-
-
+    if (!response.data.success) {
+      toast.error(response.data.message);
+    } else {
+      toast.success(response.data.message);
+      window.localStorage.setItem("accessToken", response.data.accessToken);
+      Cookies.set("accessToken", response.data.accessToken);
+      router.push("/");
+      router.refresh();
+    }
   };
   return (
     <div className="relative flex justify-center items-center">
-      <Image src={loginjpg} alt="login Image" className="h-[45rem]" />
-      <div className="absolute flex flex-col items-center bg-white/60  gap-2 rounded-xl p-10 px-32">
-        <div className="text-2xl text-violet-900 font-extrabold">
-          Log in to your account
+      <Image src={loginjpg} alt="login Image" className="h-[51rem] relative" />
+      <div className="absolute flex flex-col items-center bg-white   gap-1 p-7 sm:p-10 md:px-32">
+        <div className="md:text-2xl text-[#2d2d2d] josefin-sans-bold font-extrabold">
+          SIGN INTO EXPLORE
         </div>
-        <div className="font-extralight text-base">
-          Please enter your details!
+        <div className="font-light md:text-lg text-sm josefin-sans-unique">
+          Kindly submit your details!
         </div>
 
         <form onSubmit={handleSubmit(submitData)}>
-          <div className="mt-6">
+          <div className="mt-3">
             <CostumInput
               type="Email"
-              placeholder="E-mail"
+              placeholder="E-MAIL"
               error={errors.email?.message}
               register={register("email")}
-              className="border-solid border-[1px] pr-14 mt-2 rounded-md "
+              className="border-solid border-[1px] text-[12px] w-full  mt-2 p-2 "
             />
 
-            <div className=" relative flex justify-end items-center ">
+            <div className=" relative  ">
               <CostumInput
-                type={click ==true ?"Password":"text"}
-                placeholder="Password"
+                type={click == true ? "Password" : "text"}
+                placeholder="PASSWORD"
                 error={errors.password?.message}
                 register={register("password")}
-                className="border-solid border-[1px] pr-14 mt-2 rounded-md "
+                className="border-solid border-[1px] text-[12px] w-full mt-2 p-2 "
               />
-{click==true?
-              <EyeOpen className="absolute size-4 flex mr-2 bottom-[0.3rem]" onClick={() => setClick(false)}/>:
-                <EyeClose  className="absolute size-4 flex mr-2 bottom-[0.3rem]" onClick={() => setClick(true)} />
-}
+
+              {click == true ? (
+                <EyeOpen
+                  className="absolute size-4  right-3 top-[1.1rem]"
+                  onClick={() => setClick(false)}
+                />
+              ) : (
+                <EyeClose
+                  className="absolute size-4 right-3 top-[1.1rem]"
+                  onClick={() => setClick(true)}
+                />
+              )}
             </div>
           </div>
-
           <div className="mt-3 ">
             <button
               type="submit"
-              className="bg-yellow font-semibold px-24 rounded-md hover:bg-orange"
+              className="bg-[#2d2d2d] font-light josefin-sans-unique text-white   w-full px-24 py-1  hover:bg-[#666666]"
             >
-              Log In
+              SIGN IN
             </button>
           </div>
         </form>
 
-        <div className="flex font-semibold text-xs mt-3 gap-1 ">
+        <div className="flex font-semibold josefin-sans-unique text-sm mt-3 gap-1 ">
           Don&apos;t have an account?
           <Link
             href={"sign-up"}
-            className="text-violet-600 hover:text-violet-800"
+            className="text-violet-600 hover:text-violet-900"
           >
             Sign Up
           </Link>

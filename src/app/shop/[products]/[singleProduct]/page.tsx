@@ -1,4 +1,3 @@
-import FeaturedCard from "@/app/_components/FeaturedCard";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Addcart from "@/app/cart/_components/Addcart";

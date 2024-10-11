@@ -9,9 +9,9 @@ const headerLink = [
 ];
 function HeaderSide() {
   return (
-    <div className="hidden justify-between space-x-3 md:flex">
+    <div className="hidden  justify-center space-x-3 md:flex">
       {headerLink.map((item, index) => (
-        <Link key={index} className="hover:text-yellow"  href={item.link}> {item.name} </Link>
+        <Link key={index} className="hover:underline  "  href={item.link}> {item.name} </Link>
       ))}
     </div>
   );

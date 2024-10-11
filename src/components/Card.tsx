@@ -12,7 +12,7 @@ type CardProps = {
 const card = (props: CardProps) => {
   return (
     <Link href={`/shop/${props.id}` }>
-      <div className="relative h-60 w-full flex justify-center hover:shadow-2xl items-center ">
+      <div className="relative h-[30rem] w-full flex justify-center hover:shadow-2xl items-center ">
         { storageUrl + props.image ? (
           <Image
             src={ storageUrl + props.image}

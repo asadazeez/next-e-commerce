@@ -16,11 +16,11 @@ const response = await frontendApi.getShopPage()
 
   return (
     <div>
-      <div className="text-3xl font-extrabold flex justify-center align-middle">
+      <div className=" sen-bold text-4xl flex justify-center pt-24 align-middle">
         CATEGORIES
       </div>
 
-      <div className="grid  col-span-2  p-32 gap-8 md:grid-cols-3 ">
+      <div className="grid  col-span-2  px-36 py-20 gap-8 md:grid-cols-3 ">
         
         
         {categoryDatas.map((category:any, index:number)=>(

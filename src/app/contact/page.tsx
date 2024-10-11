@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import contact from "@public/image/WhatsApp Image 2024-07-26 at 15.08.03 (1).jpeg";
+import contact from "@public/image/Sld57IYnq8bNKuGmOA3nY-transformed.jpeg";
 import AddressSvg from "../../svg/Address";
 import CallSvg from "../../svg/Call";
 import EmailSvg from "../../svg/Email";
 
 const page = () => {
   return (
-    <div className="relative h-[35rem] flex justify-center items-center">
+    <div className="relative h-[51rem] flex justify-center items-center">
       <Image src={contact} alt="contact image" fill className="object-cover"/>
       <div className=" text-white z-50  flex flex-col px-4 font-medium items-center gap-6 ">
         <h2 className="font-black text-3xl">CONTACT US</h2>

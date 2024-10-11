@@ -3,16 +3,18 @@ import Facebook from "../../svg/Facebook";
 
 import Xsvg from "../../svg/Xsvg";
 import Instagram from "../../svg/Instagram";
+import Youtube from "@/svg/Youtube";
 
 function FooterSidebar() {
   return (
-    <div className=" ">
-      <div className="flex pt-6 space-x-6 ">
-        <Facebook className="size-[2.975rem]" />
-        <Instagram className="size-[2.8rem]" />
-        <Xsvg className="size-[2.975rem]" />
+   
+      <div className="flex pt-2  space-x-2 ">
+        <Facebook className="size-[1.15rem]" />
+        <Instagram className="size-5" />
+        <Xsvg className="size-5" />
+        <Youtube className="size-5"/>
       </div>
-    </div>
+   
   );
 }
 

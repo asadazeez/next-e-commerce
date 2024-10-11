@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import loginjpg from "@public/image/vecteezy_modern-blue-wavy-shape-geometric-abstract-curve-line_7546115-1.jpg";
+import loginjpg from "@public/image/cjGRDUZhw1yFwIDKEwEvn-transformed.jpeg";
 import Link from "next/link";
 import CostumInput from "@components/CostumInput";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -66,55 +66,55 @@ try {
   };
   return (
     <div className="relative flex justify-center items-center">
-      <Image src={loginjpg} alt="login Image" className="h-[45rem]" />
-      <div className="absolute flex flex-col items-center bg-white/60  gap-1 rounded-xl p-5 px-16">
-        <div className="text-lg text-violet-900 font-extrabold">
-          Create a new account
+      <Image src={loginjpg} alt="login Image" className="h-[51rem]" />
+      <div className="absolute flex flex-col items-center bg-white  gap-1  p-10 px-24">
+        <div className="md:text-2xl text-[#2d2d2d] josefin-sans-bold font-extrabold">
+          CREATE YOUR PROFILE
         </div>
-        <div className="font-extralight text-xs pb-5">
+        <div className="font-light josefin-sans-unique text-lg pb-5">
           Please enter your details!
         </div>
         <form onSubmit={handleSubmit(submitData)}>
           <CostumInput
             type="text"
-            placeholder="Name"
+            placeholder="NAME"
             register={register("name")}
             error={errors.name?.message}
-            className="border-solid border-[1px] pr-14 mt-2 rounded-md "
+            className="border-solid border-[1px] text-[12px] w-full  mt-2 p-2  "
           />
           <CostumInput
             type="Email"
-            placeholder="E-mail"
+            placeholder="E-MAIL"
             register={register("email")}
             error={errors.email?.message}
-            className="border-solid border-[1px] pr-14 mt-2 rounded-md "
+            className="border-solid border-[1px] text-[12px] w-full  mt-2 p-2  "
           />
 
           <CostumInput
             type="Password"
-            placeholder="Password"
+            placeholder="PASSWORD"
             error={errors.password?.message}
             register={register("password")}
-            className="border-solid border-[1px] pr-14 mt-2 rounded-md "
+            className="border-solid border-[1px] text-[12px] w-full  mt-2 p-2  "
           />
 
           <CostumInput
             type="Password"
-            placeholder="Confirm Password"
+            placeholder="CONFIRM PASSWORD"
             error={errors.confirmPassword?.message}
             register={register("confirmPassword")}
-            className="border-solid border-[1px] pr-14 mt-2 rounded-md "
+            className="border-solid border-[1px] text-[12px] w-full  mt-2 p-2  "
           />
 
-          <button className="bg-yellow font-semibold text-sm px-24 py-1 mt-2 rounded-md hover:bg-orange">
-            Sign Up
+          <button className="bg-[#2d2d2d] px-24 font-light josefin-sans-unique text-white mt  w-full py-1 mt-3  hover:bg-[#666666]">
+            SIGN UP
           </button>
         </form>
-        <div className="flex font-semibold text-xs mt-3 gap-1 ">
-          Already have an account?{" "}
+        <div className="flex font-semibold josefin-sans-unique text-sm mt-3 gap-1 ">
+         Have an account?
           <Link
             href={"login"}
-            className="text-violet-500 hover:text-violet-800"
+            className="text-violet-600 hover:text-violet-900"
           >
             Log In
           </Link>{" "}

@@ -10,6 +10,7 @@ type Props = {
 
 
 const CustomInput = (props: Props) => {
+
  
 
   
@@ -17,10 +18,12 @@ const CustomInput = (props: Props) => {
     <>
     <input 
       type={props.type}
-      placeholder={props.placeholder}
+      
+       placeholder={props.placeholder}
+       
   {...props.register}
       className={props.className}/>
-      <p className="text-red-600">{props.error}</p>
+      <p className="text-red-600 text-[10px]">{props.error}</p>
       </>
   );
 };

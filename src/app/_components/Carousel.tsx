@@ -1,12 +1,17 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image1 from "../../../public/image/WhatsApp Image 2024-07-26 at 15.08.03 (1).jpeg";
 import Image2 from "../../../public/image/WhatsApp Image 2024-07-26 at 15.08.03 (2).jpeg";
 import Image3 from "@public/image/WhatsApp Image 2024-07-26 at 15.08.03.jpeg";
 import cn from "@/utilis/tailwind";
 import { storageUrl } from "@/utilis/baseUrl";
 import Link from "next/link";
+import NextSvg from "@/svg/Next";
+import PrevSvg from "@/svg/Prev";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 type Props ={
   gallery:any
@@ -43,33 +48,95 @@ type Props ={
 // ];
 
 const Carousel =  ({gallery}:Props) => {
+
+
+  function SampleNextArrow(props:any) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} z-20 custom-next`} 
+        style={{
+          ...style,
+          display:"block"
+  ,        right: '30px' ,
+        }}
+        onClick={onClick}
+      >
+        <NextSvg width="25px" height="25px" className="transform  transition-transform duration-300  hover:scale-125"/>
+      </div>
+    );
+  }
+  function SamplePrevArrow(props:any) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} z-20 custom-prev`}
+        style={{
+          ...style,
+          display: 'block',
+          left: '30px' ,
+        }}
+        onClick={onClick}
+      >
+        <PrevSvg width="25px" height="25px" className="transform transition-transform duration-300 hover:scale-125"/>
+      </div>
+      
+    );
+  }
   
  
 
-
-
-  const [index, setIndex] = useState(0);
-  const abc = gallery.length;
-
-  const onnext = () => {
-    if (abc - 1 == index) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
+  
+  const settings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    waitForAnimate: false,
+    autoplay: true, 
+    pauseOnHover: false,        
+    autoplaySpeed: 3000,  
+    nextArrow: <SampleNextArrow /> ,
+    prevArrow:<SamplePrevArrow/>  
   };
 
-  const previous = () => {
-    if (index == 0) {
-      setIndex(abc - 1);
-    } else {
-      setIndex(index - 1);
-    }
-  };
+
+  // const [index, setIndex] = useState(0);
+  // const abc = gallery.length;
+
+  // const onnext = () => {
+  //   if (abc - 1 == index) {
+  //     setIndex(0);
+  //   } else {
+  //     setIndex(index + 1);
+  //   }
+  // };
+
+  // const previous = () => {
+  //   if (index == 0) {
+  //     setIndex(abc - 1);
+  //   } else {
+  //     setIndex(index - 1);
+  //   }
+  // };
 
   return (
-    <div className="w-full h-[35rem] relative">
-      
+    <div>
+      <Slider {...settings}>
+      {gallery.map((item:any,index:number) => (
+        <div key={index} className="w-full h-[51rem] relative">
+ <Link href={`/shop/${item.category}`} >
+<Image src={storageUrl + item.image} className="object-cover" fill alt="Carousel image" /></Link>
+
+</div>
+
+
+
+
+      )   )}
+      {/*
 
    
       <Image
@@ -79,25 +146,19 @@ const Carousel =  ({gallery}:Props) => {
        fill
        
       />
-    
-     <div className="absolute inset-0  left-4 right-4 flex justify-between">
-        <button
-          onClick={previous}
-          className=" hover:text-2xl  text-white font-bold"
-          >
-          {"<"}
-        </button>
-        <button
-          onClick={onnext}
-          className="hover:text-2xl  text-white font-bold"
-          >
-          {">"}
-        </button>
-        </div>
+    </Link> */}
+    </Slider>
+     {/* <div className="absolute inset-0  left-4 right-4 flex justify-between"> */}
+        
+         {/* <PrevSvg onClick={previous} className="size-6 absolute left-4 top-[45%] transform transition-transform duration-300 hover:scale-125 "/>
        
-        <Link href={`/shop/${gallery.at(index)!.category}`}  className="absolute inset-x-10 inset-y-0 flex justify-between">
+        
+         <NextSvg onClick={onnext} className="size-6 absolute top-[45%] transform transition-transform duration-300 hover:scale-125 right-4"/> */}
+{/*        
+        </div> */}
+       
+        
 
-</Link>
       {/* <div className={cn("absolute top-48 inset-x-0 mx-12 ",{'text-center':index==1},{"text-end":index==2})}>
         
         <div className="font-thin text-white">

@@ -2,3 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  
+  .josefin-sans-unique {
+    font-family: "Josefin Sans", sans-serif; 
+    font-optical-sizing: auto; 
+    font-weight: 400; 
+    font-style: normal; 
+  }
+
+  
+  .josefin-sans-bold {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700; 
+  }
+
+  
+  .sen-unique {
+    font-family: "Sen", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; 
+    font-style: normal;
+  }
+
+  
+  .sen-bold {
+    font-family: "Sen", sans-serif;
+    font-weight: 700;
+  }
+
+  .sen-semibold {
+    font-family: "Sen", sans-serif;
+    font-weight: 600;
+  }
+
+  .sen-light {
+    font-family: "Sen", sans-serif;
+    font-weight: 300;
+  }
+
+  
+}
+#featuredProductSlider .slick-track{
+  display: flex !important;
+  gap: 3rem !important;
+}
+.slick-prev:before, .slick-next:before {
+  display: none !important; 
+}

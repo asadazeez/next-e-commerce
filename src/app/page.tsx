@@ -5,13 +5,19 @@ import Featured from "./_components/Featured";
 import { frontendApi } from "./api/apis";
 
 const page = async () => {
+  const response2 = await frontendApi.getHomepage()
+
+  const featuredData = response2.data.data.featured
+
+
+
   const response = await frontendApi.getBanner()
   const gallery = response.data.data.carousel
   return (
-    <div>
+    <div  >
       <Carousel gallery={gallery} />
+      <Featured featuredData={featuredData}/>
       <Categories />
-      <Featured/>
     </div>
   );
 };

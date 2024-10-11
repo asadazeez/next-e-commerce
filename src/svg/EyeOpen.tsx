@@ -6,6 +6,7 @@ const EyeOpen = (props: SVGProps<SVGSVGElement>) => (
     xmlSpace="preserve"
     width={800}
     height={800}
+    fill="#2d2d2d"
     viewBox="0 0 1200 1200"
     {...props}
   >
