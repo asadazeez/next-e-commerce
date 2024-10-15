@@ -40,6 +40,12 @@
     font-family: "Sen", sans-serif;
     font-weight: 300;
   }
+  .ravi-prakash-regular {
+    font-family: "Ravi Prakash", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 
   
 }
@@ -50,3 +56,39 @@
 .slick-prev:before, .slick-next:before {
   display: none !important; 
 }
+.content {
+  top: 10%;
+  left: 35%;
+  position: absolute;
+}
+.circle {
+  stroke-dasharray: 1194;
+  stroke-dashoffset: 1194;
+  animation: dc 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+.tick {
+  stroke-dasharray: 350;
+  stroke-dashoffset: 350;
+  animation: dt 0.8s ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.95s;
+}
+@keyframes dc {
+  from {
+    stroke-dashoffset: 1194;
+  }
+  to {
+    stroke-dashoffset: 2388;
+  }
+}
+@keyframes dt {
+  from {
+    stroke-dashoffset: 350;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+

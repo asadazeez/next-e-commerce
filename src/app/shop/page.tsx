@@ -2,6 +2,7 @@ import React from "react";
 
 import Card from "@/components/Card";
 import { frontendApi } from "../api/apis";
+import CardNew from "@/components/CardNew";
 
 
 
@@ -16,7 +17,7 @@ const response = await frontendApi.getShopPage()
 
   return (
     <div>
-      <div className=" sen-bold text-4xl flex justify-center pt-24 align-middle">
+      <div className=" sen-bold text-4xl flex justify-center pt-32 align-middle">
         CATEGORIES
       </div>
 
@@ -25,12 +26,13 @@ const response = await frontendApi.getShopPage()
         
         {categoryDatas.map((category:any, index:number)=>(
            
-          <Card
-          key={index}
+        //   <Card
+        //   key={index}
           
-         id={category._id}
-          name={category.name}
-          image={category.image}/>
+        //  id={category._id}
+        //   name={category.name}
+        //   image={category.image}/>
+      <CardNew key={index} image={category.image} id={category._id} name={category.name}/>
         ))}
         
       </div>

@@ -9,6 +9,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { userApi } from "../api/userApi";
 import toast from "react-hot-toast";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 const Schema = z
   .object({
@@ -39,6 +41,7 @@ const Schema = z
 type TSchema = z.infer<typeof Schema>;
 
 const Page = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -57,6 +60,10 @@ try {
     }else{
       
       toast.success(response.data.message)
+      window.localStorage.setItem("accessToken", response.data.accessToken);
+      Cookies.set("accessToken", response.data.accessToken);
+      router.push("/");
+      router.refresh();
     }
 } catch (error) {
   console.log(error)

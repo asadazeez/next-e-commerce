@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Addcart from "@/app/cart/_components/Addcart";
 import { frontendApi } from "@/app/api/apis";
 import { storageUrl } from "@/utilis/baseUrl";
+import CardNewOne from "@/components/CardNewOne";
 
 const SingleProductPage = async ({
   params,
@@ -13,26 +14,27 @@ const SingleProductPage = async ({
   const ProductData = response.data.data.product;
 
   return (
-    <div className="relative   gap-9 pb-14 grid md:grid-cols-2">
-      <div className="flex justify-center px-5 col-span-1">
-      <div className="relative h-[15rem] w-full md:h-[25rem]">
+    <div className="relative  py-24   gap-9  grid md:grid-cols-2">
+      <div className="flex justify-center items-center px-14 lg:px-28 col-span-1">
+      <div className="relative h-[25rem] w-full   md:w-96 md:h-[30rem]">
         <Image
           src={storageUrl + ProductData.image}
           alt="product image"
           fill
-          className="object-cover rounded-2xl"
+          className="object-cover "
         />
       </div>
       </div>
       
       <div className="flex flex-col text-center justify-center gap-3 md:text-start">
-        <div className="font-bold text-xl">{ProductData.name}</div>
-        <div className="font-black text-4xl">₹{ProductData.price}</div>
-        <div className="font-medium">{ProductData.brand}</div>
-        <div className="font-medium">{ProductData.description}</div>
+        <div className="sen-semibold text-xl">{ProductData.name}</div>
+        <div className="sen-bold text-4xl">₹{ProductData.price}</div>
+        <div className="sen-semibold">{ProductData.brand}</div>
+        <div className="sen-semibold">{ProductData.description}</div>
 
         <div className="flex flex-col  gap-3 justify-start">
-          <Addcart ProductData={ProductData} />
+          {/* <Addcart ProductData={ProductData} /> */}
+          <CardNewOne ProductData={ProductData}/>
         </div>
       </div>
     </div>

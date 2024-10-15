@@ -14,7 +14,7 @@ import HumBurger from "@/components/NewButton";
 const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [isScrolled , setIsScrolled] = useState(false)
-  // const [client, setClient] = useState(false);
+  const [client, setClient] = useState(false);
   const { totalUniqueItems } = useCart();
 
 
@@ -38,15 +38,15 @@ const Header = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (!client) {
-  //     setClient(true);
-  //   }
-  // }, [client]);
+  useEffect(() => {
+    if (!client) {
+      setClient(true);
+    }
+  }, [client]);
 
-  // if (!client) {
-  //   return;
-  // }
+  if (!client) {
+    return;
+  }
 
   const click = () => {
     setToggle(!toggle);
@@ -68,15 +68,15 @@ const Header = () => {
       </div>
 
 
-      <div className="flex gap-3 mr-6"> <div className="relative border-[1px] h-min rounded-full p-1">
+      <div className="flex gap-3 mr-6"> <Link href={"/cart"}> <div className="relative border-[1px] h-min hover:scale-110  rounded-full p-1">
           <div className="flex">
-            {/* <div className=" absolute  top-[-5px] right-[-5px] size-3 font-mono bg-orange rounded-full flex justify-center text-xs items-center">
+            <div className={` absolute top-[0.7rem] right-2  size-3 font-mono  rounded-full flex justify-center text-[10px] items-center ${isScrolled? "text-black":"text-white"}`}>
              {totalUniqueItems}
-            </div> */}
+            </div>
           </div>
-          <Link href={"/cart"}>
-          <CartSvg className="size-4  hover:shadow-lg" /></Link>
-        </div>         <Burger className="size-7 md:hidden  -mr-7" onClick={click} />
+         
+          <CartSvg className="size-5" />
+        </div>    </Link>     <Burger className="size-7 md:hidden  -mr-7" onClick={click} />
         </div>
     </div>
         {toggle ? <Sidebar click={click}/> : ""}

@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderSide from "./HeaderSide";
 import Link from "next/link";
+import { Divider } from "@mui/material";
 
 const headerLink = [
   { name: "HOME", link: "/" },
@@ -16,11 +17,14 @@ function Sidebar({ click }: Props) {
     <div className=" fixed inset-0  z-50 grid grid-cols-2">
       <div className="bg-transparent col-span-1 " onClick={click}>
       </div>
-      <div className=" flex flex-col bg-white  text-center font-extrabold p-16 md:hidden text-3xl text-[#666666] gap-8 col-span-1">
+      <div className=" flex flex-col bg-white  text-center sen-unique py-20 md:hidden text-lg text-[#2d2d2d] gap-4 col-span-1">
         {headerLink.map((item, index) => (
-          <Link key={index} className=" hover:text-yellow" href={item.link}  onClick={click}>
+          <>          <Link key={index} className=" hover:text-yellow" href={item.link}  onClick={click}>
             {item.name}
           </Link>
+          <Divider/>
+          </>
+   
         ))}
       </div>
     </div>

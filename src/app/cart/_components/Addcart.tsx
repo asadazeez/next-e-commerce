@@ -23,7 +23,7 @@ const Addcart = ({ProductData}:Props) => {
                 ...ProductData,
               })
             }
-            classname="bg-blue px-11 py-2 rounded-lg font-semibold text-white"
+            classname="bg-[#2d2d2d] px-11 py-2 sen-light text-white"
             text="ADD TO CART"
           />
     </>
